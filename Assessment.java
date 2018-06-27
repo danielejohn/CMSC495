@@ -18,18 +18,25 @@ public class Assessment {
     */
     
     // Create arrays to store the various question types using class objects
-    private CodeTracingQuestion[] codeTracingQuestions;
-    private ErrorIDQuestion[] errorIDQuestions;
-    private MultipleChoiceQuestion[] multipleChoiceQuestions;
+    private CodeTracingQuestion[] codeTracingQuestions = new CodeTracingQuestion[25];
+    //private ErrorIDQuestion[] errorIDQuestions;
+    //private MultipleChoiceQuestion[] multipleChoiceQuestions;
     
     // Test array and index
     private String[] testQuestions = {"what would you do for a Klondike bar?",
             "How many licks to get to the center of a tootsie pop?"};
     private int testQuestionIndex = 0;
     
+    public void fillTest()
+    {
+        CodeTracingQuestion codeTracingQuestion1 = new CodeTracingQuestion(
+                "what would you do for a Klondike bar?");
+        codeTracingQuestions[0] = codeTracingQuestion1;
+    }
+    
    // Variables local to this class to track the question number a user is on
     private int codeTracingQuestionIndex, errorIDQuestionIndex, 
-            multipleChoiceQuestionIndex;
+            multipleChoiceQuestionIndex = 0;
     
     /**
      * Method to display code tracing questions and increment the index once a
@@ -47,7 +54,7 @@ public class Assessment {
      */
     public void displayErrorIdQuestions() 
     {
-        errorIDQuestions[errorIDQuestionIndex].display();
+    //    errorIDQuestions[errorIDQuestionIndex].display();
         errorIDQuestionIndex++;
     }
     
@@ -57,7 +64,7 @@ public class Assessment {
      */
     public void displayMultipleChoiceQuestions() 
     {
-        multipleChoiceQuestions[multipleChoiceQuestionIndex].display();
+    //    multipleChoiceQuestions[multipleChoiceQuestionIndex].display();
         multipleChoiceQuestionIndex++;
     }
     
@@ -66,5 +73,5 @@ public class Assessment {
     {
         System.out.println(testQuestions[testQuestionIndex]);
     }
-    
+        
 }
