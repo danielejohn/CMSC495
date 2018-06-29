@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cmsc495final;
+package codhisattva;
 
 /**
  *
@@ -19,18 +19,19 @@ public class Assessment {
     
     // Create arrays to store the various question types using class objects
     private CodeTracingQuestion[] codeTracingQuestions = new CodeTracingQuestion[25];
-    //private ErrorIDQuestion[] errorIDQuestions;
+    private ErrorIDQuestion[] errorIDQuestions;
     //private MultipleChoiceQuestion[] multipleChoiceQuestions;
     
-    // Test array and index
-    private String[] testQuestions = {"what would you do for a Klondike bar?",
-            "How many licks to get to the center of a tootsie pop?"};
-    private int testQuestionIndex = 0;
     
+    /*
+    * Theoretical method used to fill each appropriate test.  Will likely
+    * change as progress on the program continues.
+    */
     public void fillTest()
     {
+        String[] feedbackQuestionOne = {"Incorrect", "Correct"};
         CodeTracingQuestion codeTracingQuestion1 = new CodeTracingQuestion(
-                "what would you do for a Klondike bar?");
+                "what would you do for a Klondike bar?", 0,0,feedbackQuestionOne);
         codeTracingQuestions[0] = codeTracingQuestion1;
     }
     
@@ -66,12 +67,6 @@ public class Assessment {
     {
     //    multipleChoiceQuestions[multipleChoiceQuestionIndex].display();
         multipleChoiceQuestionIndex++;
-    }
-    
-    // Test versions of methods
-    public void displayTestDataQuestions()
-    {
-        System.out.println(testQuestions[testQuestionIndex]);
     }
         
 }
