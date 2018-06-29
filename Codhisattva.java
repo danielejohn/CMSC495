@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package codhisattva;
 
 /*
@@ -11,6 +16,8 @@ package codhisattva;
 public class Codhisattva {
 
     public static void main(String[] args) {
+        
+        // Begin Josh's Tests
         InstructionModule instructionModule = new InstructionModule();
         instructionModule.display(0);
         instructionModule.previous();
@@ -41,6 +48,14 @@ public class Codhisattva {
         eIDQ1LinesSelected[0] = 2;
         eIDQ1LinesSelected[1] = 4;
         eIDQ1.feedback(eIDQ1LinesSelected);
+        // End Josh's Tests
+        System.out.println("\n");
+        System.out.println("~~~~~~~~~~~~~~~~~~~");
+        // Begin Daniel's Tests
+        Assessment assessment = new Assessment();
+        assessment.fillTest();
+        assessment.displayCodeTracingQuestions();
+        // End Daniel's Tests
     }
     
 }
