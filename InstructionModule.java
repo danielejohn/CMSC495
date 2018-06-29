@@ -12,6 +12,12 @@ package codhisattva;
 * Purpose: This class holds and displays instuction.
 */
 
+/**
+ * Revision History
+ * 28 June 2019 - Initial CodeTracingQuestion file created by Josh
+ * 
+ */
+
 public class InstructionModule {
     private String[] loopInstruction;  //Holds the instruction.
     private int instructionIndex;  //Tracks the page the student is on, though the page is this index + 1.

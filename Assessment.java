@@ -5,9 +5,19 @@
  */
 package codhisattva;
 
+/*
+* File: Assessment.java
+* Author: Daniel John
+* Date: June 28, 2018
+* Purpose: This class contains the functionality to store the various question
+* types and to hold the data that will be used to create the various tests.
+*/
+
 /**
- *
- * @author Daniel
+ * Revision History
+ * 28 June 2019 - Initial Assessment file created by Daniel with test arrays to 
+ * test the various method calls against fake data
+ * 
  */
 public class Assessment {
     

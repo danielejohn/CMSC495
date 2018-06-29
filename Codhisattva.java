@@ -13,6 +13,14 @@ package codhisattva;
 * classes and their methods.
 */
 
+/**
+ * Revision History
+ * 27 June 2019 - File created by Josh
+ * 29 June 2019 - Merged Daniel main.java tests into this file and removed the
+ * main now that our GitHub is up and running
+ * 
+ */
+
 public class Codhisattva {
 
     public static void main(String[] args) {
