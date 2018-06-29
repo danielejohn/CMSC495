@@ -16,6 +16,12 @@ import java.util.Arrays;
 * each line that s/he identfies.
 */
 
+/**
+ * Revision History
+ * 28 June 2019 - Initial CodeTracingQuestion file created by Josh
+ * 
+ */
+
 public class ErrorIDQuestion {
     private String[] question;  //Holds the question.
     int[] linesWithErrors;  //Holds the line numbers that contain errors.
