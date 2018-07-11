@@ -5,159 +5,130 @@
  */
 package codhisattva;
 
-import java.util.Scanner;
-
 /**
- * File: MultipleChoiceQuestion.java
- * @author Nate
- * Date: June 29, 2018
- * Purpose: This is multiple choice question test in which each student will 
- * have to identify the correct answer amongst 4 possible answers. Feedback
- * will be provided for the user for each correct answer given. 
+ *
+ * @author lukem
  */
 
-/**
- * Revision History
- * June 28, 2018 - Initial Multiple Choice file created by Nate. 
- */
-public class MultipleChoiceQuestion {
+import java.awt.*;
+import javax.swing.*;
 
-    private static int score;
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-    String[] multiChoice;
-    Scanner input = new Scanner(System.in);
-
-    // List of Questions
+public class MultipleChoiceQuestion extends JPanel{
     
-    multiChoice = new String[5];
-    multiChoice[0] = "1. Question 1\n";
-    multiChoice[1] = "2. Question 2\n";
-    multiChoice[2] = "3. question 3\n";
-    multiChoice[3] = "4. Question 4\n";
-    multiChoice[4] = "5. Question 5\n";
-
-    //Answers for question 1
-    String userSelect1 = multiChoice[0];
-
-    if(userSelect1 == null ? multiChoice[0] == null : userSelect1.equals(multiChoice[0])){
-        System.out.println(multiChoice[0]);
-        System.out.println("A. Answere1");
-        System.out.println("B. Answere2");
-        System.out.println("C. Answere3");
-        System.out.println("D. Answere4");
-        System.out.println();
-        System.out.print("Your answer: ");
-        String uSelect1 = input.next();
-
-        char selection = uSelect1.toUpperCase().charAt(0);
-if (selection == 'C') {
-    score++;
-    System.out.println("Correct!");
-} else if ('A' <= selection && selection <= 'D') {
-    System.out.println("Incorrect");
-} else {
-    System.out.println("Bad Input");
-}
+    //structure
+    String question;
+    //these choices will be formated as multiple choice questions
+    String[] choice;
+    //will be the index of the correct answer in choices
+    int answer;
+    String[] feedback;
+    
+    //GUI components
+    Color baseBlue = new Color(0,51,102);
+    
+    JButton _aButton;
+    JButton _bButton;
+    JButton _cButton;
+    JButton _dButton;
+    
+    JLabel _aLabel;
+    JLabel _bLabel;
+    JLabel _cLabel;
+    JLabel _dLabel;
+    
+    JTextArea _question;
+    JLabel _feedback;
+    
+    public MultipleChoiceQuestion(String question, String[] choice, int answer, String [] feedback){
+        
+        //structure
+        this.question = question;
+        this.choice = choice;
+        this.answer = answer;
+        this.feedback = feedback;
+        
+        //GUI Components
+        this.setBackground(baseBlue);
+        this.setLayout(new GridLayout(3,1));
+        
+        _aButton = new JButton("A");
+        _bButton = new JButton("B");
+        _cButton = new JButton("C");
+        _dButton = new JButton("D");
+        
+        //creating Panels for buttons so they are not resized in GridLayout
+        JPanel _aButtonPanel = new JPanel();
+        JPanel _bButtonPanel = new JPanel();
+        JPanel _cButtonPanel = new JPanel();
+        JPanel _dButtonPanel = new JPanel();
+        
+        _aButtonPanel.setBackground(baseBlue);
+        _bButtonPanel.setBackground(baseBlue);
+        _cButtonPanel.setBackground(baseBlue);
+        _dButtonPanel.setBackground(baseBlue);
+        
+        _aButtonPanel.add(_aButton);
+        _bButtonPanel.add(_bButton);
+        _cButtonPanel.add(_cButton);
+        _dButtonPanel.add(_dButton);
+        
+        _aLabel = new JLabel(choice[0]);
+        _bLabel = new JLabel(choice[1]);
+        _cLabel = new JLabel(choice[2]);
+        _dLabel = new JLabel(choice[3]);
+        
+        _aLabel.setForeground(Color.white);
+        _bLabel.setForeground(Color.white);
+        _cLabel.setForeground(Color.white);
+        _dLabel.setForeground(Color.white);
+        
+        _question = new JTextArea(question);
+        _feedback = new JLabel("feedback",SwingConstants.CENTER);
+        _feedback.setForeground(Color.WHITE);
+        
+        this.add(_question);
+        
+        //create structure for multiple choice panel
+        JPanel _multipleChoicePanel = new JPanel();
+        _multipleChoicePanel.setLayout(new GridLayout(2,2,50,50));
+        _multipleChoicePanel.setBackground(baseBlue);
+        
+        JPanel _panelA = new JPanel();
+        JPanel _panelB = new JPanel();
+        JPanel _panelC = new JPanel();
+        JPanel _panelD = new JPanel();
+        
+        _panelA.setBackground(baseBlue);
+        _panelB.setBackground(baseBlue);
+        _panelC.setBackground(baseBlue);
+        _panelD.setBackground(baseBlue);
+        
+        _panelA.setLayout(new GridLayout(1,2,10,10));
+        _panelB.setLayout(new GridLayout(1,2,10,10));
+        _panelC.setLayout(new GridLayout(1,2,10,10));
+        _panelD.setLayout(new GridLayout(1,2,10,10));
+        
+        _panelA.add(_aButtonPanel);
+        _panelA.add(_aLabel);
+        
+        _panelB.add(_bButtonPanel);
+        _panelB.add(_bLabel);
+        
+        _panelC.add(_cButtonPanel);
+        _panelC.add(_cLabel);
+        
+        _panelD.add(_dButtonPanel);
+        _panelD.add(_dLabel);
+        
+        _multipleChoicePanel.add(_panelA);
+        _multipleChoicePanel.add(_panelB);
+        _multipleChoicePanel.add(_panelC);
+        _multipleChoicePanel.add(_panelD);
+        
+        this.add(_multipleChoicePanel);
+        
+        //adding _feedback to mainPanel
+        this.add(_feedback);
     }
     
-    //Answers for question 2
-String userSelect2 = multiChoice[1];
-
-    if(userSelect1 == null ? multiChoice[1] == null : userSelect1.equals(multiChoice[1])){
-        System.out.println(multiChoice[1]);
-        System.out.println("A. Answere1");
-        System.out.println("B. Answere2");
-        System.out.println("C. Answere3");
-        System.out.println("D. Answere4");
-        System.out.println();
-        System.out.print("Your answer: ");
-        String uSelect1 = input.next();
-
-        char selection = uSelect1.toUpperCase().charAt(0);
-if (selection == 'B') {
-    score++;
-    System.out.println("Correct!");
-} else if ('A' <= selection && selection <= 'D') {
-    System.out.println("Incorrect");
-} else {
-    System.out.println("Bad Input");
-}
-        }
-    
-    //Answers for question 3
-    String userSelect3 = multiChoice[2];
-
-    if(userSelect1 == null ? multiChoice[2] == null : userSelect1.equals(multiChoice[2])){
-        System.out.println(multiChoice[2]);
-        System.out.println("A. Answere1");
-        System.out.println("B. Answere2");
-        System.out.println("C. Answere3");
-        System.out.println("D. Answere4");
-        System.out.println();
-        System.out.print("Your answer: ");
-        String uSelect1 = input.next();
-
-        char selection = uSelect1.toUpperCase().charAt(0);
-if (selection == 'B') {
-    score++;
-    System.out.println("Correct!");
-} else if ('A' <= selection && selection <= 'D') {
-    System.out.println("Incorrect");
-} else {
-    System.out.println("Bad Input");
-}
-    }
-    
-    //Answers for question 4
-    String userSelect4 = multiChoice[3];
-
-    if(userSelect1 == null ? multiChoice[3] == null : userSelect1.equals(multiChoice[3])){
-        System.out.println(multiChoice[3]);
-        System.out.println("A. Answere1");
-        System.out.println("B. Answere2");
-        System.out.println("C. Answere3");
-        System.out.println("D. Answere4");
-        System.out.println();
-        System.out.print("Your answer: ");
-        String uSelect1 = input.next();
-
-        char selection = uSelect1.toUpperCase().charAt(0);
-if (selection == 'B') {
-    score++;
-    System.out.println("Correct!");
-} else if ('A' <= selection && selection <= 'D') {
-    System.out.println("Incorrect");
-} else {
-    System.out.println("Bad Input");
-}
-    }
-    
-    //Answers for question 5
-    String userSelect5 = multiChoice[4];
-
-    if(userSelect1 == null ? multiChoice[4] == null : userSelect1.equals(multiChoice[4])){
-        System.out.println(multiChoice[4]);
-        System.out.println("A. Answere1");
-        System.out.println("B. Answere2");
-        System.out.println("C. Answere3");
-        System.out.println("D. Answere4");
-        System.out.println();
-        System.out.print("Your answer: ");
-        String uSelect1 = input.next();
-
-        char selection = uSelect1.toUpperCase().charAt(0);
-if (selection == 'B') {
-    score++;
-    System.out.println("Correct!");
-} else if ('A' <= selection && selection <= 'D') {
-    System.out.println("Incorrect");
-} else {
-    System.out.println("Bad Input");
-            }
-    }
-    }
 }
